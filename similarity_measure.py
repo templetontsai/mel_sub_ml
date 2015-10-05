@@ -4,7 +4,15 @@
 from math import*
 from decimal import Decimal
 import numpy as np
+from sklearn import preprocessing
 
+def to_nomalized(a):
+    return preprocessing.normalize(a)
+
+def to_float(a):
+    for i in range(len(a)):
+        a[i] = float(a[i])
+    return a
 def dis_to_sim(d):
     return 1/(1+d)
 

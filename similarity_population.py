@@ -65,8 +65,5 @@ for i in range(34):
     id_features.append([sub_id[i], age_0_4[i], age_5_9[i], age_10_14[i], age_15_19[i], age_20_24[i], age_25_44[i],
 	    age_45_64[i], age_65_69[i], age_70_74[i], age_75_79[i], age_80_84[i], age_85[i]])
 
-#print similarity_sub(id_features[sub_a][1:], id_features[sub_b][1:], 12)
+print similarity_sub(id_features[sub_a][1:], id_features[sub_b][1:], 12)
 
-h1 = [2.0,2.0,5.0,1.0]
-h2 = [2.0,2.0,5.0,1.0]
-print sm.dis_to_sim(sm.bhatta_distance(h1, h2, 4))
