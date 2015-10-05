@@ -14,56 +14,50 @@ from sklearn import preprocessing
 import similarity_measure as sm
 
 def similarity_sub(a, b):
-#return sm.dis_to_sim(sm.euclidean_distance(a, b))
+    return sm.dis_to_sim(sm.euclidean_distance(a, b))
 #    return sm.dis_to_sim(sm.manhattan_distance(a, b))
 #    return sm.dis_to_sim(sm.minkowski_distance(a, b, 3))
-    return sm.dis_to_sim(sm.cosine_similarity(a, b))
+#    return sm.dis_to_sim(sm.cosine_similarity(a, b))
+def init():
+    all_sub_features = pd.read_csv('all_sub_all_category.csv')
+    population_d = all_sub_features['Population Density']
+    area = all_sub_features['Area (km^2)']
+    population_d = population_d.values.tolist()
+    area = area.values.tolist()
+
+    for i in range(len(population_d)):
+        population_d[i] = float(population_d[i])
+
+    for i in range(len(area)):
+        area[i] = float(area[i])
+
+    population_d = preprocessing.normalize(population_d)
+    area = preprocessing.normalize(area)
+    
+    population_d = population_d.tolist()[0]
+    area = area.tolist()[0]
+    id_features = []
+
+    for i in range(34):
+        id_features.append([population_d[i], area[i]])
+    return id_features
+
+def distance_metrix():
+    sm_m = init()
+    m = []
+
+    for i in range(34):
+        for j in range(34):
+	    m.append(sm.euclidean_distance([sm_m[i][0], sm_m[i][1]], 
+			[sm_m[j][0], sm_m[j][1]]))
+    return m
+
+def similarity_geography(sub_a, sub_b):
+    id_features = init()
+    return similarity_sub([id_features[sub_a][0], id_features[sub_a][1]],
+	    [id_features[sub_b][0], id_features[sub_b][1]])
 
 
-all_sub_features = pd.read_csv('all_sub_all_category.csv')
-
-sub_a = int(sys.argv[1]) - 1
-sub_b = int(sys.argv[2]) - 1
-
-#travel_t = all_sub_features['Travel time to GPO (minutes)']
-population_d = all_sub_features['Population Density']
-area = all_sub_features['Area (km^2)']
-
-#travel_t = travel_t.values.tolist()
-population_d = population_d.values.tolist()
-area = area.values.tolist()
-sub_id = all_sub_features['ID']
-sub_id = sub_id.values.tolist()
-'''
-for i in range(len(travel_t)):
-    travel_t[i] = float(travel_t[i])
-'''
-for i in range(len(population_d)):
-    population_d[i] = float(population_d[i])
-
-for i in range(len(area)):
-    area[i] = float(area[i])
-
-#travel_t = preprocessing.normalize(travel_t)
-population_d = preprocessing.normalize(population_d)
-area = preprocessing.normalize(area)
-'''
-if(is_standardized == '1'):
-    x = preprocessing.scale(x)
-    y = preprocessing.scale(y)
-'''
-#travel_t = travel_t.tolist()[0]
-population_d = population_d.tolist()[0]
-area = area.tolist()[0]
-id_features = []
-for i in range(34):
-    id_features.append([sub_id[i], population_d[i], area[i]])
-
-print similarity_sub([id_features[sub_a][1], id_features[sub_a][2]],
-	[id_features[sub_b][1], id_features[sub_b][2]])
-'''
-id_features.append([sub_id[i], travel_t[i], population_d[i], area[i]])
-print similarity_sub([id_features[sub_a][1], id_features[sub_a][2], id_features[sub_a][3]],
-	[id_features[sub_b][1], id_features[sub_b][2], id_features[sub_b][3]])
-'''
-
+#sub_a = int(sys.argv[1]) - 1
+#sub_b = int(sys.argv[2]) - 1
+print similarity_geography(9, 14)

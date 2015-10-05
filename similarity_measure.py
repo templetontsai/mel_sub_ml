@@ -3,6 +3,7 @@
 
 from math import*
 from decimal import Decimal
+import numpy as np
 
 def dis_to_sim(d):
     return 1/(1+d)
@@ -32,3 +33,33 @@ def jaccard_similarity(x,y):
     intersection_cardinality = len(set.intersection(*[set(x), set(y)]))
     union_cardinality = len(set.union(*[set(x), set(y)]))
     return intersection_cardinality/float(union_cardinality)
+
+
+def loge(n,li,ls):
+    if fabs(li-ls) <= 0.000001:
+        return (li+ls)/2.0
+    if (exp(li)-n)*(exp((li+ls)/2.0)-n) < 0:
+        return loge(n,li,(li+ls)/2.0)
+    else:
+        return loge(n,(li+ls)/2.0,ls)
+def ln(n):
+    if n == 0 or n < 0:
+        return "Math Domain Error"
+    if n == 1:
+	return 0
+    if n > 0 and n < 1:
+	return loge(n,0,-n-80)
+    else:
+        return loge(n,0,n)
+def bhatta_distance(hist1, hist2, num):
+    h1 = np.average(hist1)
+    h2 = np.average(hist2)
+
+    dis = 0;
+    for i in range(num):
+        dis += sqrt( hist1[i] * hist2[i])
+    dis = sqrt( 1 - ( 1 / sqrt(h1*h2*8*8) ) * dis);
+    print dis
+#dis = sqrt(dis - 1)
+#dis = -ln(dis)
+    return dis

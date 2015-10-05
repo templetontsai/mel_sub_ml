@@ -385,13 +385,8 @@ ID,Name,Map reference,Grid reference,Location,Population Density,Travel time to 
 ",6,3.5,"Vietnamese
 ",6,6.7,"Spanish
 ",5,5.6,"Italian
-",5,5.6,"n/a
-","n/a
-","n/a
-","n/a
-","n/a
-","n/a
-",10,1,"E4
+",5,5.6,"None
+",0,0,None,0,0,10,1,"E4
 ","19km NW of Melbourne
 ",5.2,23,25,"Hume (C)
 ","Hume-Whittlesea Primary Care Partnership
@@ -844,8 +839,7 @@ ID,Name,Map reference,Grid reference,Location,Population Density,Travel time to 
 ",5,0.4,"Serbian
 ",5,0.4,"French
 ","<5
-","n/a
-",23,5,"A3
+",0.1,23,5,"A3
 ","62km SSW of Melbourne
 ",212.4,83,107,"Mornington Peninsula (S)
 ","Frankston - Mornington Peninsula Primary Care Partnership
@@ -992,14 +986,11 @@ ID,Name,Map reference,Grid reference,Location,Population Density,Travel time to 
 ",11,1.4,"Italian
 ",6,0.7,"Hungarian
 ","<5
-","n/a
-","Indonesian
+",0.1,"Indonesian
 ","<5
-","n/a
-","German
+",0.1,"German
 ","<5
-","n/a
-",27,5,"B4
+",0.1,27,5,"B4
 ","68km S of Melbourne
 ",289.3,73,101,"Mornington Peninsula (S)
 ","Frankston - Mornington Peninsula Primary Care Partnership
