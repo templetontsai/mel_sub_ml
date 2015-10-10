@@ -16,10 +16,18 @@ from sklearn.metrics import euclidean_distances
 from sklearn.decomposition import PCA
 import similarity_measure as sm
 import similarity_geography as sm_geo
+import similarity_industry_diversity as sm_idus_diversity
+import similarity_cultural_diversity as sm_cult_diversity
 
-similarities = sm_geo.init()
-similarities = euclidean_distances(similarities)
-print similarities
+#similarities = sm_idus_diversity.distance_metrix()
+similarities = sm_cult_diversity.distance_metrix()
+similarities = np.array(similarities)
+similarities = similarities.reshape(34, 34)
+#np.savetxt("industry_diversity_distance_metrix.csv", similarities, delimiter=",")
+np.savetxt("cultral_diversity_distance_metrix.csv", similarities, delimiter=",")
+#print similarities
+#similarities = sm_geo.init()
+#similarities = euclidean_distances(similarities)
 mds = manifold.MDS(n_components=2, max_iter=3000, eps=1e-9,
 	                   dissimilarity="precomputed", n_jobs=1)
 pos = mds.fit(similarities).embedding_

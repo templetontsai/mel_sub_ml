@@ -14,7 +14,9 @@ from sklearn import preprocessing
 import similarity_measure as sm
 
 def similarity_sub(a, b):
-    return sm.dis_to_sim(sm.euclidean_distance(a, b))
+#    return sm.dis_to_sim(sm.euclidean_distance(a, b))
+    print sm.euclidean_distance(a, b)
+
 #    return sm.dis_to_sim(sm.manhattan_distance(a, b))
 #    return sm.dis_to_sim(sm.minkowski_distance(a, b, 3))
 #    return sm.dis_to_sim(sm.cosine_similarity(a, b))
@@ -60,4 +62,4 @@ def similarity_geography(sub_a, sub_b):
 
 #sub_a = int(sys.argv[1]) - 1
 #sub_b = int(sys.argv[2]) - 1
-print similarity_geography(9, 14)
+#print similarity_geography(9, 14)

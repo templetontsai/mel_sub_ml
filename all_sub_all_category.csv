@@ -393,8 +393,7 @@ ID,Name,Map reference,Grid reference,Location,Population Density,Travel time to 
 ","Northern Melbourne
 ",30.4,0,0,0,"Major Cities of Australia
 ","Hume Moreland
-",10,"n/a
-",5,"Broadmeadows Health Service
+",10,0,5,"Broadmeadows Health Service
 ",12,13,"<5
 ","Sunshine Hospital
 ",13,14,43,"Royal Melbourne Hospital
@@ -839,15 +838,14 @@ ID,Name,Map reference,Grid reference,Location,Population Density,Travel time to 
 ",5,0.4,"Serbian
 ",5,0.4,"French
 ","<5
-",0.1,23,5,"A3
+",0,23,5,"A3
 ","62km SSW of Melbourne
 ",212.4,83,107,"Mornington Peninsula (S)
 ","Frankston - Mornington Peninsula Primary Care Partnership
 ","Frankston - Mornington Peninsula
 ",7,0,0,0,"Major Cities of Australia
 ","Bayside Peninsula
-",23,"n/a
-",247,"Rosebud Hospital
+",23,0,247,"Rosebud Hospital
 ",18,15,8,"Frankston Hospital
 ",46,53,590,"Rosebud Hospital
 ",18,15,158,26.8,284,48.1
@@ -986,19 +984,18 @@ ID,Name,Map reference,Grid reference,Location,Population Density,Travel time to 
 ",11,1.4,"Italian
 ",6,0.7,"Hungarian
 ","<5
-",0.1,"Indonesian
+",0,"Indonesian
 ","<5
-",0.1,"German
+",0,"German
 ","<5
-",0.1,27,5,"B4
+",0,27,5,"B4
 ","68km S of Melbourne
 ",289.3,73,101,"Mornington Peninsula (S)
 ","Frankston - Mornington Peninsula Primary Care Partnership
 ","Frankston - Mornington Peninsula
 ",3.1,0,0,0,"Major Cities of Australia
 ","Bayside Peninsula
-",27,"n/a
-",242,"Rosebud Hospital
+",27,0,242,"Rosebud Hospital
 ",12,12,10,"Frankston Hospital
 ",37,48,353,"Rosebud Hospital
 ",12,12,95,26.8,170,48.1
