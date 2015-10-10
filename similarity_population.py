@@ -18,6 +18,7 @@ def to_float(a):
     for i in range(len(a)):
         a[i] = float(a[i])
     return a
+
 def get_table(label, table):
     table = all_sub_features[label]
     table = table.values.tolist()
@@ -25,10 +26,11 @@ def get_table(label, table):
 
 def similarity_sub(a, b, num):
     return sm.dis_to_sim(sm.bhatta_distance(a, b, num))
+
 all_sub_features = pd.read_csv('all_sub_all_category.csv')
 
-sub_a = int(sys.argv[1]) - 1
-sub_b = int(sys.argv[2]) - 1
+# sub_a = int(sys.argv[1]) - 1
+# sub_b = int(sys.argv[2]) - 1
 
 age_0_4 = []
 age_5_9 = []
@@ -59,11 +61,25 @@ age_85 = to_float(get_table('2012 ERP age 85+, %', age_85))
 sub_id = all_sub_features['ID']
 sub_id = sub_id.values.tolist()
 
-
 id_features = []
 for i in range(34):
     id_features.append([sub_id[i], age_0_4[i], age_5_9[i], age_10_14[i], age_15_19[i], age_20_24[i], age_25_44[i],
 	    age_45_64[i], age_65_69[i], age_70_74[i], age_75_79[i], age_80_84[i], age_85[i]])
 
-print similarity_sub(id_features[sub_a][1:], id_features[sub_b][1:], 12)
+# print (similarity_sub(id_features[sub_a][1:], id_features[sub_b][1:], 12))
 
+matrix_value = []
+
+# generate and output scores
+
+def distance_metrix():
+	scores = []
+	for i in range(34):
+	    score = []
+	    for j in range(34):
+	    	dist = sm.bhatta_distance(id_features[i][1:],id_features[j][1:],12)
+	    	score.append(dist)
+	    scores.append(score)
+	return scores
+
+# print(sm.bhatta_distance(id_features[2][1:],id_features[2][1:],12))
