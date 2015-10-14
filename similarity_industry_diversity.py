@@ -21,7 +21,12 @@ def similarity_sub(a, b):
 #    return sm.dis_to_sim(sm.cosine_similarity(a, b))
 
 def similarity_sub_coef(a, b, a_coef, b_coef):
-    return (sm.jaccard_similarity(a, b) + sm.dis_to_sim(sm.euclidean_distance(a_coef, b_coef)))/2
+    sim_jaccard = sm.jaccard_similarity(a, b)
+    sim_euclidean = sm.dis_to_sim(sm.euclidean_distance(a_coef, b_coef))
+    if(sim_jaccard < 0.5):
+	return sim_jaccard
+    else:
+        return (sm.jaccard_similarity(a, b) + sm.dis_to_sim(sm.euclidean_distance(a_coef, b_coef)))/2
 
 def similarity_to_distance(a):
     return 1 - a
@@ -82,6 +87,7 @@ def similarity_land_use(sub_a, sub_b):
 def similarity_idus_occup(sub_a, sub_b):
     id_all_features = init()
     id_all_features = [id_all_features[1], id_all_features[2]]
+
 
     return similarity_sub_coef(id_all_features[0][sub_a], id_all_features[0][sub_b], id_all_features[1][sub_a], id_all_features[1][sub_b])
 

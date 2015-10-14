@@ -18,6 +18,7 @@ def similarity_sub(a, b):
     return sm.jaccard_similarity(a, b)
 
 def similarity_sub_coef(a, b, a_coef, b_coef):
+#return (sm.jaccard_similarity(a, b))
     return (sm.jaccard_similarity(a, b) + sm.dis_to_sim(sm.euclidean_distance(a_coef, b_coef)))/2
 
 def similarity_to_distance(a):
@@ -40,16 +41,12 @@ def init():
     birth_5th = all_sub_features['5th top country of birth']
     birth_5th = birth_5th.tolist()
 
-    birth_1st_p = all_sub_features['Top country of birth, %']
-    birth_1st_p = preprocessing.normalize(birth_1st_p.values.tolist())[0]
-    birth_2nd_p = all_sub_features['2nd top country of birth, %']
-    birth_2nd_p = preprocessing.normalize(birth_2nd_p.values.tolist())[0]
-    birth_3rd_p = all_sub_features['3rd top country of birth, %']
-    birth_3rd_p = preprocessing.normalize(birth_3rd_p.values.tolist())[0]
-    birth_4th_p = all_sub_features['4th top country of birth, %']
-    birth_4th_p = preprocessing.normalize(birth_4th_p.values.tolist())[0]
-    birth_5th_p = all_sub_features['5th top country of birth, %']
-    birth_5th_p = preprocessing.normalize(birth_5th_p.values.tolist())[0]
+    born_o_p = all_sub_features['Born overseas, %']
+    born_o_p = preprocessing.normalize(born_o_p.values.tolist())[0]
+    born_non_eng_p = all_sub_features['Born in non-English speaking country, %']
+    born_non_eng_p = preprocessing.normalize(born_non_eng_p.values.tolist())[0]
+    lote_p = all_sub_features['Speaks LOTE at home, %']
+    lote_p = preprocessing.normalize(lote_p.values.tolist())[0]
 
 
     lan_1st = all_sub_features['Top language spoken']
@@ -63,24 +60,13 @@ def init():
     lan_5th = all_sub_features['5th top language spoken']
     lan_5th = lan_5th.tolist()
 
-    lan_1st_p = all_sub_features['Top language spoken, %']
-    lan_1st_p = preprocessing.normalize(lan_1st_p.values.tolist())[0]
-    lan_2nd_p = all_sub_features['2nd top language spoken, %']
-    lan_2nd_p = preprocessing.normalize(lan_2nd_p.values.tolist())[0]
-    lan_3rd_p = all_sub_features['3rd top language spoken, %']
-    lan_3rd_p = preprocessing.normalize(lan_3rd_p.values.tolist())[0]
-    lan_4th_p = all_sub_features['4th top language spoken, %']
-    lan_4th_p = preprocessing.normalize(lan_4th_p.values.tolist())[0]
-    lan_5th_p = all_sub_features['5th top language spoken, %']
-    lan_5th_p = preprocessing.normalize(lan_5th_p.values.tolist())[0]
 
     for i in range(34):
         id_features.append([birth_1st[i].rstrip(),birth_2nd[i].rstrip(), birth_3rd[i].rstrip(), birth_4th[i].rstrip(), birth_5th[i].rstrip(),
 	        lan_1st[i].rstrip(), lan_2nd[i].rstrip(), lan_3rd[i].rstrip(), lan_4th[i].rstrip(), lan_5th[i].rstrip()])
 
     for i in range(34):
-        id_features_p.append([birth_1st_p[i], birth_2nd_p[i], birth_3rd_p[i], birth_4th_p[i], birth_5th_p[i],
-	    lan_1st_p[i], lan_2nd_p[i], lan_3rd_p[i], lan_4th_p[i], lan_5th_p[i]])
+        id_features_p.append([born_o_p[i], born_non_eng_p[i], lote_p[i]])
 
     id_all_features = [id_features, id_features_p]
     return id_all_features

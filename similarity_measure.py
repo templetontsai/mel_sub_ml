@@ -54,9 +54,9 @@ def ln(n):
     if n == 0 or n < 0:
         return "Math Domain Error"
     if n == 1:
-	return 0
+        return 0
     if n > 0 and n < 1:
-	return loge(n,0,-n-80)
+        return loge(n,0,-n-80)
     else:
         return loge(n,0,n)
 def bhatta_distance(hist1, hist2, num):
@@ -66,8 +66,6 @@ def bhatta_distance(hist1, hist2, num):
     dis = 0;
     for i in range(num):
         dis += sqrt( hist1[i] * hist2[i])
-    dis = sqrt( 1 - ( 1 / sqrt(h1*h2*8*8) ) * dis);
-    print dis
-#dis = sqrt(dis - 1)
-#dis = -ln(dis)
+    if h1 != h1:
+        dis = sqrt( 1 - ( 1 / sqrt(h1*h2*num*num) ) * dis)
     return dis
