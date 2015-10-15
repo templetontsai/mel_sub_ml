@@ -112,8 +112,11 @@ def plot_industry():
     plt.show()
 
 
+a = sys.argv[1]
+if(a == 'indus'):
+    plot_industry()
+elif(a == 'cult'):
+    plot_cultural()
+elif(a == 'pop'):
+    plot_population()
 
-#similarities = sm_pop_diversity.distance_metrix()
-plot_industry()
-plot_cultural()
-plot_population()

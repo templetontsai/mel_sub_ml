@@ -16,9 +16,6 @@ import similarity_measure as sm
 
 def similarity_sub(a, b):
     return sm.dis_to_sim(sm.euclidean_distance(a, b))
-#    return sm.dis_to_sim(sm.manhattan_distance(a, b))
-#    return sm.dis_to_sim(sm.minkowski_distance(a, b, 3))
-#    return sm.dis_to_sim(sm.cosine_similarity(a, b))
 
 def similarity_sub_coef(a, b, a_coef, b_coef):
     sim_jaccard = sm.jaccard_similarity(a, b)
